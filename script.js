@@ -115,23 +115,20 @@ ytLink.addEventListener('click', function(e) {
     e.preventDefault();
     const url = this.href;
     const overlay = document.getElementById('avalanche-overlay');
-    const video = document.getElementById('avalanche-video');
     const screen = document.querySelector('.game-screen');
 
     // 1. Tremblement de l'écran
     screen.classList.add('shake');
 
-    // 2. Affichage de l'avalanche
+    // 2. Affichage de l'avalanche (GIF)
     setTimeout(() => {
         overlay.classList.add('avalanche-active');
-        video.currentTime = 0; // Réinitialise la vidéo
-        video.play().catch(e => console.log("Erreur lecture vidéo :", e));
     }, 300);
 
-    // 3. Redirection vers YouTube
+    // 3. Redirection vers YouTube après l'animation du GIF
     setTimeout(() => {
         window.location.href = url;
-    }, 1500); // Ajuste ce délai à la durée de ta vidéo
+    }, 1500); // Ajuste ce délai à la durée de ton GIF
 });
     }
 
