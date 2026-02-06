@@ -110,30 +110,28 @@ function revealVideo() {
     
     const ytLink = document.getElementById('final-link'); // C'est cet ID qu'on a ajouté au HTML
     if (ytLink) {
+const ytLink = document.getElementById('final-link');
 ytLink.addEventListener('click', function(e) {
     e.preventDefault();
     const url = this.href;
     const overlay = document.getElementById('avalanche-overlay');
+    const video = document.getElementById('avalanche-video');
     const screen = document.querySelector('.game-screen');
 
-    // 1. L'écran tremble
+    // 1. Tremblement de l'écran
     screen.classList.add('shake');
 
-    // 2. L'avalanche tombe après un léger délai
+    // 2. Affichage de l'avalanche
     setTimeout(() => {
         overlay.classList.add('avalanche-active');
+        video.currentTime = 0; // Réinitialise la vidéo
+        video.play().catch(e => console.log("Erreur lecture vidéo :", e));
     }, 300);
 
-    // 3. Redirection directe après l'animation
+    // 3. Redirection vers YouTube
     setTimeout(() => {
-        window.location.href = url; // Redirection directe
-    }, 1000);
-
-    // 4. Reset (optionnel, car la page va changer)
-    setTimeout(() => {
-        overlay.classList.remove('avalanche-active');
-        screen.classList.remove('shake');
-    }, 2500);
+        window.location.href = url;
+    }, 1500); // Ajuste ce délai à la durée de ta vidéo
 });
     }
 
