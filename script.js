@@ -124,12 +124,12 @@ ytLink.addEventListener('click', function(e) {
         overlay.classList.add('avalanche-active');
     }, 300);
 
-    // 3. Redirection vers YouTube
+    // 3. Redirection directe après l'animation
     setTimeout(() => {
-        window.open(url, '_blank');
+        window.location.href = url; // Redirection directe
     }, 1000);
 
-    // 4. Reset
+    // 4. Reset (optionnel, car la page va changer)
     setTimeout(() => {
         overlay.classList.remove('avalanche-active');
         screen.classList.remove('shake');
