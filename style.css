@@ -220,3 +220,26 @@ body {
 .volume-btn:active {
     transform: scale(0.9);
 }
+
+/* =========================================
+   5. AJOUTS POUR LA VIDÉO (UNLOCK)
+   ========================================= */
+
+/* Container pour rendre la vidéo YouTube responsive */
+.video-responsive {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    position: relative;
+    height: 0;
+    margin-top: 10px;
+    border: 3px solid #fff; /* Bordure pixel style */
+}
+
+.video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}

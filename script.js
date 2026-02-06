@@ -5,7 +5,6 @@ if (localStorage.getItem('skiAccess') !== 'granted') {
     window.location.href = "index.html"; 
 }
 
-// Affichage du prénom
 window.onload = function() {
     const userName = localStorage.getItem('userName') || "AGENT";
     const welcomeEl = document.getElementById('userWelcome');
@@ -13,29 +12,37 @@ window.onload = function() {
 };
 
 // ==========================================
-// 2. CONFIGURATION DU DÉCOMPTE
+// 2. CONFIGURATION DU DÉCOMPTE (TEST 12h10)
 // ==========================================
 const countdownElement = document.getElementById("countdown");
-const targetDate = new Date("2026-03-07T19:00:00").getTime();
+// MODIFIE LA DATE CI-DESSOUS POUR LE TEST
+const targetDate = new Date("2026-02-06T12:20:00").getTime();
 
 function updateCountdown() {
   const now = Date.now();
   const diff = targetDate - now;
 
-if (diff <= 0) {
-    countdownElement.innerHTML = "READY<br>LET'S GO!";
-    const startBtn = document.getElementById("startBtn");
-    if (startBtn) {
-        startBtn.innerHTML = "LAUNCH VIDEO";
-        startBtn.classList.remove("locked");
-        startBtn.disabled = false;
-        startBtn.style.background = "#ffd700";
-        startBtn.style.color = "#000";
-    }
-    // SUPPRIME OU COMMENTE CETTE LIGNE :
-    // document.querySelector(".hint-text").innerHTML = "ENJOY THE RIDE!"; 
-    return;
-}
+  if (diff <= 0) {
+      // 1. On change le texte du décompte
+      countdownElement.innerHTML = "READY<br>LET'S GO!";
+      
+      // 2. On cache le bouton locked et le container du décompte
+      const startBtn = document.getElementById("startBtn");
+      const countdownContainer = document.getElementById("countdown-container");
+      
+      if (startBtn) startBtn.style.display = "none";
+      if (countdownContainer) countdownContainer.style.display = "none";
+
+      // 3. ON AFFICHE LA VIDÉO
+      const videoReveal = document.getElementById("video-reveal");
+      if (videoReveal) {
+          videoReveal.style.display = "block";
+      }
+
+      // 4. On coupe la musique pour laisser le son de la vidéo
+      if (music) music.pause();
+      return;
+  }
 
   const s = Math.floor(diff / 1000);
   const d = Math.floor(s / 86400);
@@ -54,6 +61,9 @@ if (diff <= 0) {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+// ==========================================
+// 3. GESTION DU SON
+// ==========================================
 const music = document.getElementById('bg-music');
 const volumeBtn = document.getElementById('volume-control');
 const volumeIcon = document.getElementById('volume-icon');
@@ -61,7 +71,7 @@ const volumeIcon = document.getElementById('volume-icon');
 if (volumeBtn && music) {
     volumeBtn.addEventListener('click', () => {
         if (music.paused) {
-            music.play().catch(e => console.log("L'audio n'a pas pu démarrer :", e));
+            music.play().catch(e => console.log("Bloqué par le navigateur"));
             volumeIcon.innerText = "🔊";
         } else {
             music.pause();

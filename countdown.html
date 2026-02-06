@@ -11,27 +11,41 @@
 
   <div class="game-wrapper">
     <div class="game-screen">
-	<div id="volume-control" class="volume-btn">
-        <span id="volume-icon">🔇</span>
-    </div>
-
-    <audio id="bg-music" loop>
-        <source src="assets/music.mp3" type="audio/mpeg">
-    </audio>
-      <div id="userWelcome" class="user-welcome">WELCOME AGENT</div>
-      
-      <h1 class="title">SKI TRIP 2026</h1>
-      
-      <div class="release">
-        <span class="label">RELEASE DATE</span>
-        <span class="date">MAR 7 2026 - 19:00</span>
+      <div id="volume-control" class="volume-btn">
+          <span id="volume-icon">🔇</span>
       </div>
 
-      <div id="countdown" class="countdown">LOADING...</div>
+      <audio id="bg-music" loop>
+          <source src="assets/music.mp3" type="audio/mpeg">
+      </audio>
 
-      <button id="startBtn" class="start-button locked" disabled>
-        VIDEO LOCKED
-      </button>
+      <div id="countdown-container">
+          <div id="userWelcome" class="user-welcome">WELCOME AGENT</div>
+          <h1 class="title">SKI TRIP 2026</h1>
+          
+          <div class="release">
+            <span class="label">RELEASE DATE</span>
+            <span class="date">MAR 7 2026 - 19:00</span>
+          </div>
+
+          <div id="countdown" class="countdown">LOADING...</div>
+
+          <button id="startBtn" class="start-button locked" disabled>
+            VIDEO LOCKED
+          </button>
+      </div>
+
+<div id="video-reveal" style="display:none; width: 100%;">
+    <h1 class="title" style="font-size: 10px; color: #ffd700;">MISSION ACCOMPLISHED</h1>
+    <div class="video-responsive">
+        <iframe id="reveal-video" 
+            src="https://www.youtube.com/embed/C3vcZUGZdRI?enablejsapi=1&autoplay=1" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
 
       <div class="eagle-container">
         <img src="assets/idKi-cciDf_1770328536093.svg" class="station-logo" alt="Logo">
