@@ -19,32 +19,40 @@
           <source src="assets/music.mp3" type="audio/mpeg">
       </audio>
 
-      <div id="countdown-container">
-          <div id="userWelcome" class="user-welcome">WELCOME AGENT</div>
-          <h1 class="title">SKI TRIP 2026</h1>
-          
-          <div class="release">
-            <span class="label">RELEASE DATE</span>
-            <span class="date">MAR 7 2026 - 19:00</span>
-          </div>
-
-          <div id="countdown" class="countdown">LOADING...</div>
-
-          <button id="startBtn" class="start-button locked" disabled>
-            VIDEO LOCKED
-          </button>
-      </div>
-
-<div id="video-reveal" style="display: none !important; width: 100%;">
-    <h1 class="title" style="font-size: 10px; color: #ffd700;">MISSION ACCOMPLISHED</h1>
-    <div class="video-responsive">
-<iframe id="reveal-video" 
-    src="https://www.youtube.com/embed/C3vcZUGZdRI?enablejsapi=1" 
-    frameborder="0" 
-    allow="autoplay; encrypted-media" 
-    allowfullscreen>
-</iframe>
+<div id="countdown-container">
+    <div id="userWelcome" class="user-welcome">WELCOME AGENT</div>
+    <h1 class="title">SKI TRIP 2026</h1>
+    
+    <div class="release">
+        <span class="label">RELEASE DATE</span>
+        <span class="date">MAR 7 2026 - 19:00</span>
     </div>
+
+    <div id="countdown" class="countdown">LOADING...</div>
+
+    <div id="action-zone">
+        <button id="startBtn" class="start-button locked" disabled>
+            VIDEO LOCKED
+        </button>
+
+        <div id="loading-zone" style="display: none;">
+            <p class="loading-text">UNLOCKING SERRE CHEVALIER DOMAIN...</p>
+            <div class="progress-bar-outer">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="video-reveal" style="display: none !important; width: 100%; text-align: center;">
+    <h1 class="title" style="font-size: 10px; color: #ffd700; margin-bottom: 30px;">MISSION ACCOMPLISHED</h1>
+    
+    <a href="https://youtu.be/C3vcZUGZdRI" target="_blank" id="yt-link" style="text-decoration: none;">
+        <div class="pixel-yt-logo">
+            <div class="play-arrow"></div>
+        </div>
+        <p class="loading-text" style="margin-top: 20px; font-size: 8px;">OPEN IN YOUTUBE</p>
+    </a>
 </div>
 
       <div class="eagle-container">
