@@ -98,22 +98,44 @@ function runLoadingSequence() {
 
 // FONCTION RÉVÉLATION VIDÉO
 function revealVideo() {
-    // 1. Récupérer les infos de l'agent
     const code = localStorage.getItem('agentCode');
-    const agentNameEl = document.getElementById('agentName');
-    const agentAvatarEl = document.getElementById('agentAvatar');
-
     if (code && AGENTS_DATA[code]) {
-        // On remplace le nom et la photo par les vrais
-        if (agentNameEl) agentNameEl.innerText = AGENTS_DATA[code].fullName;
-        if (agentAvatarEl) agentAvatarEl.src = AGENTS_DATA[code].avatar;
+        document.getElementById('agentName').innerText = AGENTS_DATA[code].fullName;
+        document.getElementById('agentAvatar').src = AGENTS_DATA[code].avatar;
     }
 
-    // 2. Affichage
     document.getElementById("countdown-container").style.display = "none";
-    const videoReveal = document.getElementById("video-reveal");
-    videoReveal.style.display = "block";
-    videoReveal.style.setProperty('display', 'block', 'important');
+    const reveal = document.getElementById("video-reveal");
+    reveal.style.setProperty('display', 'block', 'important');
+    
+    const ytLink = document.getElementById('final-link'); // C'est cet ID qu'on a ajouté au HTML
+    if (ytLink) {
+ytLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    const url = this.href;
+    const overlay = document.getElementById('avalanche-overlay');
+    const screen = document.querySelector('.game-screen');
+
+    // 1. L'écran tremble
+    screen.classList.add('shake');
+
+    // 2. L'avalanche tombe après un léger délai
+    setTimeout(() => {
+        overlay.classList.add('avalanche-active');
+    }, 300);
+
+    // 3. Redirection vers YouTube
+    setTimeout(() => {
+        window.open(url, '_blank');
+    }, 1000);
+
+    // 4. Reset
+    setTimeout(() => {
+        overlay.classList.remove('avalanche-active');
+        screen.classList.remove('shake');
+    }, 2500);
+});
+    }
 
     if (music) music.pause(); 
     videoLaunched = true;
