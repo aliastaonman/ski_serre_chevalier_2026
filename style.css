@@ -198,3 +198,25 @@ body {
   25% { transform: translateX(-10px); }
   75% { transform: translateX(10px); }
 }
+
+.volume-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #fff;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 18px;
+    border-radius: 6px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.volume-btn:active {
+    transform: scale(0.9);
+}

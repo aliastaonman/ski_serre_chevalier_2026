@@ -53,3 +53,19 @@ if (diff <= 0) {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+const music = document.getElementById('bg-music');
+const volumeBtn = document.getElementById('volume-control');
+const volumeIcon = document.getElementById('volume-icon');
+
+if (volumeBtn && music) {
+    volumeBtn.addEventListener('click', () => {
+        if (music.paused) {
+            music.play().catch(e => console.log("L'audio n'a pas pu démarrer :", e));
+            volumeIcon.innerText = "🔊";
+        } else {
+            music.pause();
+            volumeIcon.innerText = "🔇";
+        }
+    });
+}
