@@ -280,13 +280,19 @@ body {
 
 /* Logo YouTube style Pixel */
 .pixel-yt-logo {
-    width: 80px;
-    height: 56px;
+    width: 90px;
+    height: 64px;
     background: #ff0000;
-    margin: 0 auto;
+
+    /* descente contrôlée */
+    margin: 28px auto 0;
+
     position: relative;
-    border-radius: 10px;
     border: 4px solid #fff;
+
+    /* arrondi rétro */
+    border-radius: 6px;
+
     box-shadow: 6px 6px 0 #000;
     display: flex;
     align-items: center;
@@ -295,15 +301,20 @@ body {
     transition: transform 0.1s;
 }
 
+.pixel-yt-logo:hover {
+    filter: brightness(1.1);
+}
+
 .pixel-yt-logo:active {
-    transform: scale(0.9);
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 #000;
 }
 
 .play-arrow {
     width: 0;
     height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-left: 25px solid #fff;
-    margin-left: 5px;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 26px solid #fff;
+    margin-left: 6px;
 }
