@@ -18,13 +18,22 @@ function checkAccess() {
   const error = document.getElementById('errorMessage');
 
   if (PASSWORDS_MAP[input]) {
-    // On stocke l'accès ET le prénom correspondant
+
+    // accès général
     localStorage.setItem('skiAccess', 'granted');
+
+    // prénom (si encore utilisé ailleurs)
     localStorage.setItem('userName', PASSWORDS_MAP[input]);
+
+    // 🔥 NOUVEAU : code agent complet
+    localStorage.setItem('agentCode', input);
+
     window.location.href = "countdown.html";
+
   } else {
     error.style.display = "block";
     document.getElementById('passInput').classList.add('shake');
+
     setTimeout(() => {
       document.getElementById('passInput').classList.remove('shake');
     }, 500);

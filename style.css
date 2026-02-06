@@ -321,7 +321,65 @@ body {
 
 .welcome-serre {
     font-size: 10px;
-    margin-top: 35px;     /* ↓ descend le texte sous MISSION ACCOMPLISHED */
-    margin-bottom: 40px;  /* espace avant le logo YouTube */
+    margin-top: 10px;
+    margin-bottom: 18px;
+    color: #ffd700;
+    text-shadow: 2px 2px 0 #000;
+}
+
+/* Nom de l’agent */
+.agent-name {
+    font-size: 9px;
     color: #fff;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0 #000;
+}
+
+/* Avatar pixelisé */
+.pixel-avatar {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 26px;
+    border: 4px solid #fff;
+    background: #000;
+    box-shadow: 6px 6px 0 #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* AJOUTS POUR L'ARRONDI */
+    border-radius: 6px; 
+    overflow: hidden; /* Empêche l'image de dépasser des coins arrondis */
+}
+
+.pixel-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    /* On applique aussi l'arrondi à l'image pour plus de sécurité */
+    border-radius: 2px; 
+}
+
+/* Lien YouTube */
+.yt-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.yt-text {
+    margin-top: 18px;
+    font-size: 8px;
+    color: #fff;
+    line-height: 1.5;
+}
+
+/* =========================================
+   PROFIL AGENT – CONTAINER GLOBAL
+   ========================================= */
+
+.agent-profile {
+    margin-top: 60px; /* ↓ DESCEND TOUT LE BLOC */
+    text-align: center;
 }
