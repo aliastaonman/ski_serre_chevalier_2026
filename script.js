@@ -12,39 +12,36 @@ window.onload = function() {
 };
 
 // ==========================================
-// 2. CONFIGURATION DU DÉCOMPTE (TEST 12h10)
+// 2. CONFIGURATION DU DÉCOMPTE (TEST 13h20)
 // ==========================================
 const countdownElement = document.getElementById("countdown");
-// MODIFIE LA DATE CI-DESSOUS POUR LE TEST
 const targetDate = new Date("2026-02-06T13:20:00").getTime();
+let videoLaunched = false; // Pour éviter que la vidéo recharge en boucle
 
 function updateCountdown() {
   const now = Date.now();
   const diff = targetDate - now;
 
-  if (diff <= 0) {
-	  const iframe = document.getElementById("reveal-video");
-if (iframe) {
-    iframe.src += "&autoplay=1"; // On ajoute l'autoplay seulement à la fin !
-}
-      // 1. On change le texte du décompte
-      countdownElement.innerHTML = "READY<br>LET'S GO!";
-      
-      // 2. On cache le bouton locked et le container du décompte
-      const startBtn = document.getElementById("startBtn");
-      const countdownContainer = document.getElementById("countdown-container");
-      
-      if (startBtn) startBtn.style.display = "none";
-      if (countdownContainer) countdownContainer.style.display = "none";
-
-      // 3. ON AFFICHE LA VIDÉO
-      const videoReveal = document.getElementById("video-reveal");
-      if (videoReveal) {
-          videoReveal.style.display = "block";
+  // SI LE TEMPS N'EST PAS FINI
+  if (diff > 0) {
+      document.getElementById("countdown-container").style.display = "block";
+      document.getElementById("video-reveal").style.display = "none";
+  } 
+  // SI LE TEMPS EST FINI
+  else {
+      if (!videoLaunched) { // On ne le fait qu'une seule fois
+          const iframe = document.getElementById("reveal-video");
+          if (iframe) {
+              iframe.src += "&autoplay=1"; 
+          }
+          
+          document.getElementById("countdown-container").style.display = "none";
+          document.getElementById("video-reveal").style.display = "block";
+          
+          if (music) music.pause();
+          videoLaunched = true;
+          return;
       }
-
-      // 4. On coupe la musique pour laisser le son de la vidéo
-      if (music) music.pause();
       return;
   }
 
@@ -75,7 +72,7 @@ const volumeIcon = document.getElementById('volume-icon');
 if (volumeBtn && music) {
     volumeBtn.addEventListener('click', () => {
         if (music.paused) {
-            music.play().catch(e => console.log("Bloqué par le navigateur"));
+            music.play().catch(e => console.log("Bloqué"));
             volumeIcon.innerText = "🔊";
         } else {
             music.pause();
