@@ -23,6 +23,10 @@ function updateCountdown() {
   const diff = targetDate - now;
 
   if (diff <= 0) {
+	  const iframe = document.getElementById("reveal-video");
+if (iframe) {
+    iframe.src += "&autoplay=1"; // On ajoute l'autoplay seulement à la fin !
+}
       // 1. On change le texte du décompte
       countdownElement.innerHTML = "READY<br>LET'S GO!";
       
