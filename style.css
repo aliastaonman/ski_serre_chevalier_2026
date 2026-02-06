@@ -318,3 +318,10 @@ body {
     border-left: 26px solid #fff;
     margin-left: 6px;
 }
+
+.welcome-serre {
+    font-size: 10px;
+    margin-top: 35px;     /* ↓ descend le texte sous MISSION ACCOMPLISHED */
+    margin-bottom: 40px;  /* espace avant le logo YouTube */
+    color: #fff;
+}
