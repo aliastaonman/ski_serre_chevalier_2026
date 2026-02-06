@@ -16,7 +16,7 @@ window.onload = function() {
 // ==========================================
 const countdownElement = document.getElementById("countdown");
 // MODIFIE LA DATE CI-DESSOUS POUR LE TEST
-const targetDate = new Date("2026-02-06T12:20:00").getTime();
+const targetDate = new Date("2026-02-06T13:20:00").getTime();
 
 function updateCountdown() {
   const now = Date.now();
