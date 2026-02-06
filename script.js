@@ -15,7 +15,7 @@ window.onload = function() {
 // 2. CONFIGURATION DU DÉCOMPTE & UNLOCK
 // ==========================================
 const countdownElement = document.getElementById("countdown");
-const targetDate = new Date("2026-02-06T12:43:00").getTime();
+const targetDate = new Date("2026-03-07T19:40:00").getTime();
 let videoLaunched = false; 
 
 function updateCountdown() {
